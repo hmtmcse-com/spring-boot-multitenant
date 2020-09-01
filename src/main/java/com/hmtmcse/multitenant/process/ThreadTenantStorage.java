@@ -12,7 +12,7 @@ public class ThreadTenantStorage {
         return currentTenant.get();
     }
 
-    public static void clear(){
+    public static void clear() {
         currentTenant.remove();
     }
 }

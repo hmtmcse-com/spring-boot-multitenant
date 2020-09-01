@@ -1,20 +1,30 @@
 package com.hmtmcse.multitenant.process;
 
-import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
+import org.springframework.stereotype.Component;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.context.request.WebRequest;
+import org.springframework.web.context.request.WebRequestInterceptor;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-public class TenantIdentityInterceptor extends HandlerInterceptorAdapter {
+@Component
+public class TenantIdentityInterceptor implements WebRequestInterceptor {
 
     @Override
-    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("------- Called preHandle");
-        return true;
+    public void preHandle(WebRequest request) throws Exception {
+        String tenant = request.getHeader("tenant");
+        if (tenant == null){
+            tenant = "vw";
+        }
+        ThreadTenantStorage.setTenantId(tenant);
     }
 
     @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("------- Called afterCompletion");
+    public void postHandle(WebRequest request, ModelMap model) throws Exception {
+
+    }
+
+    @Override
+    public void afterCompletion(WebRequest request, Exception ex) throws Exception {
+        ThreadTenantStorage.clear();
     }
 }

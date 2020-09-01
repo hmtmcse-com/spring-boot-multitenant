@@ -14,5 +14,5 @@ public class BismillahController {
         return "Bismillah";
     }
 
-    // https://www.bytefish.de/blog/spring_boot_multitenancy.html
+
 }
