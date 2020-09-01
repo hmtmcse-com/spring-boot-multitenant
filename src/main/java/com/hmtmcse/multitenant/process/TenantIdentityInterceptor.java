@@ -15,6 +15,7 @@ public class TenantIdentityInterceptor implements WebRequestInterceptor {
         if (tenant == null){
             tenant = "vw";
         }
+        System.out.println("-------- TenantIdentityInterceptor");
         ThreadTenantStorage.setTenantId(tenant);
     }
 

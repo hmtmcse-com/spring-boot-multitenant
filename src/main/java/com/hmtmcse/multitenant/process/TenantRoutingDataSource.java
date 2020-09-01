@@ -8,10 +8,10 @@ public class TenantRoutingDataSource extends AbstractRoutingDataSource {
     @Override
     protected Object determineCurrentLookupKey() {
         Object data = ThreadTenantStorage.getTenantId();
-        if (data == null){
+        if (data == null) {
             data = "vw";
         }
-        System.out.println(data);
+        System.out.println("determineCurrentLookupKey ---- " + data);
         return data;
     }
 
