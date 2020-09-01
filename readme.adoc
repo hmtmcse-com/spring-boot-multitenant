@@ -1,0 +1,31 @@
+. https://reflectoring.io/flyway-spring-boot-multitenancy/
+. https://github.com/bytefish/SpringBootMultiTenancy
+. https://dzone.com/articles/dynamic-multi-tenancy-using-java-spring-boot-sprin
+
+
+
+== Need
+. Default Database
+. Secondary Database
+. Read database config from database
+. Read database config from application.yml
+.. driverClassName
+.. jdbcUrl
+.. username
+.. password
+.. initialSize
+.. maxWait
+.. maxActive
+.. maxIdle
+.. minIdle
+. Login
+. Identifier parse from token
+. thread run
+. scheduler
+. tenant manipulation api
+.. add
+.. remove
+.. suspend
+.. unsuspend
+
+
